@@ -76,6 +76,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/PasswordInputText"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
              />
     </com.google.android.material.textfield.TextInputLayout>
@@ -100,7 +101,7 @@
         android:padding="16dp"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ForgotPasswordbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -109,7 +110,7 @@
         android:backgroundTint="@color/white"
         android:fontFamily="@font/roboto_slab_bold"
         android:outlineProvider="none"
-        android:text="Forgot Password?"
+        android:text="Forgot Password"
         android:textColor="@color/black"
         android:textSize="10sp"
         android:textStyle="bold"
@@ -118,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/LineDivider"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:layout_marginStart="28dp"
@@ -127,25 +128,42 @@
         android:background="#437A7474"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/ForgotPasswordbutton" />
+
+    <TextView
+        android:id="@+id/Donthaveaccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LineDivider"
+        android:text="Don't have an account?"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:textSize="13sp"/>
 
     <Button
         android:id="@+id/SignUPbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        android:text="Sign Up"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/roboto_slab_bold"
         android:backgroundTint="@color/red"
-        android:padding="16dp"/>
+        android:fontFamily="@font/roboto_slab_bold"
+        android:padding="16dp"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Donthaveaccount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

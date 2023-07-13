@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signin_navigation"
+    app:startDestination="@id/step_1_dest">
+
+    <fragment
+        android:id="@+id/step_1_dest"
+        android:name="com.example.rebuying.SignIn.FirstSignInFragment"
+        android:label="fragment_first_sign_in"
+        tools:layout="@layout/fragment_first_sign_in" >
+        <action
+            android:id="@+id/action_firstSignInFragment_to_secondSignInFragment"
+            app:destination="@id/step_2_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/step_2_dest"
+        android:name="com.example.rebuying.SignIn.SecondSignInFragment"
+        android:label="fragment_second_sign_in"
+        tools:layout="@layout/fragment_second_sign_in" />
+</navigation>

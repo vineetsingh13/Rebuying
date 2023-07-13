@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/step_1_dest"
+        android:title="Company Credentials" />
+
+    <item android:id="@+id/step_2_dest"
+        android:title="Company Details"
+        />
+
+</menu>

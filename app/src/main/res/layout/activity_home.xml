@@ -1,9 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E4383B"
+        android:orientation="horizontal"
+        android:padding="9dp"
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:background="@drawable/search_background"
+            android:elevation="8dp"
+            android:id="@+id/search_view"
+            android:gravity="start|end"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search Machines" />
+
+        <ImageButton
+            android:id="@+id/notification_icon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_weight="0.5"
+            android:backgroundTint="#E4383B"
+            android:contentDescription="bell icon"
+            android:scaleType="fitXY"
+            android:src="@drawable/baseline_notifications_24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/location_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#E85C5C"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <Button
+            android:id="@+id/location_button"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:backgroundTint="#E85C5C"
+            android:text="current location"
+            android:fontFamily="sans-serif-medium"
+            android:textAlignment="textStart"
+            android:textSize="10sp"
+            android:elevation="8dp"
+            android:textColor="@color/white"
+            android:drawableLeft="@drawable/baseline_location_on_24"
+            android:outlineProvider="none"
+            />
+
+    </LinearLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location_holder" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:elevation="16dp"
+        app:menu="@menu/bottom_nav_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        android:background="@drawable/search_background"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
