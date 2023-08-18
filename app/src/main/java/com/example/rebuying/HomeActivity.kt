@@ -2,6 +2,8 @@ package com.example.rebuying
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import com.example.rebuying.HomeFragment.HomeFragment
 import com.example.rebuying.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -11,5 +13,27 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        replaceFragment(HomeFragment())
+        binding.bottomNavigationView.setOnItemSelectedListener {
+
+            when(it.itemId){
+
+                R.id.bottom_nav_home->{
+                    replaceFragment(HomeFragment())
+                }
+            }
+            true
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+
+        val fragmentManager=supportFragmentManager
+        val fragmentTransaction=fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container,fragment)
+        fragmentTransaction.commit()
+
+
     }
 }
