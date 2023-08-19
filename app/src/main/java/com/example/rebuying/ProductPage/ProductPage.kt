@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Locale
 import kotlin.system.measureTimeMillis
 
 class ProductPage : AppCompatActivity() {
@@ -70,6 +71,15 @@ class ProductPage : AppCompatActivity() {
                     binding.iamgeSlider.setImageList(imageList,ScaleTypes.FIT)
                     user_api_response(product_info.userId)
 
+                    binding.productName.text= product_info.nameOfMachine.uppercase(Locale.getDefault())
+                    binding.productDescription.text=product_info.description
+                    binding.machineTypeValue.text=product_info.machineType
+                    binding.machineManufacturerValue.text=product_info.machineManufacturer
+                    binding.modelNumberValue.text=product_info.machineModelNumber
+                    binding.machineBuildDateValue.text=product_info.machineBuildDate
+                    binding.machineDimensionValue.text=product_info.machineDimension
+                    binding.machineWeightValue.text=product_info.machineWeight
+                    binding.machineConditionValue.text=product_info.machineCondition
                 }
             }
 
@@ -90,6 +100,8 @@ class ProductPage : AppCompatActivity() {
             override fun onResponse(call: Call<UserData>, response: Response<UserData>) {
                 if (response.code()==200){
                     Log.e("SUCCESS USER DATA",response.body().toString())
+                    var user_info=response.body()
+                    binding.companyName.text= user_info!!.nameOfOrganization
                 }
             }
 
