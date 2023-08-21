@@ -9,9 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.rebuying.R
 import com.example.rebuying.ServiceGenerator
-import com.example.rebuying.databinding.FragmentFirstSignInBinding
 import com.example.rebuying.databinding.FragmentHomeBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

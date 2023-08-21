@@ -1,16 +1,10 @@
 package com.example.rebuying
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rebuying.SignIn.SignInActivity
 import com.example.rebuying.databinding.ActivityLoginBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 

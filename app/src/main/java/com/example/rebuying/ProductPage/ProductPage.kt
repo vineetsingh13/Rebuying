@@ -7,12 +7,9 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
-import com.example.rebuying.R
 import com.example.rebuying.ServiceGenerator
-import com.example.rebuying.databinding.ActivityHomeBinding
 import com.example.rebuying.databinding.ActivityProductPageBinding
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -100,7 +97,7 @@ class ProductPage : AppCompatActivity() {
             override fun onResponse(call: Call<UserData>, response: Response<UserData>) {
                 if (response.code()==200){
                     Log.e("SUCCESS USER DATA",response.body().toString())
-                    var user_info=response.body()
+                    val user_info=response.body()
                     binding.companyName.text= user_info!!.nameOfOrganization
                 }
             }

@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.rebuying.R
 import com.example.rebuying.databinding.FragmentSecondSignInBinding
 
 class SecondSignInFragment : Fragment() {
