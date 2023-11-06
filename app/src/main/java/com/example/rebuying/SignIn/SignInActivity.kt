@@ -14,6 +14,7 @@ import com.example.rebuying.HomeActivity
 import com.example.rebuying.R
 import com.example.rebuying.ServiceGenerator
 import com.example.rebuying.databinding.ActivitySignInBinding
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -27,6 +28,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
 
    private lateinit var sharedViewModel: SharedViewModel
+   private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +43,7 @@ class SignInActivity : AppCompatActivity() {
 
         sharedViewModel=ViewModelProvider(this).get(SharedViewModel::class.java)
 
+        auth=FirebaseAuth.getInstance()
 
         binding.nextButton.setOnClickListener {
             stepper.goToNextStep()
@@ -79,16 +82,16 @@ class SignInActivity : AppCompatActivity() {
                                         putString("Name_of_organisation", response.body()!!.NameOfOrgasation)
                                         apply()
                                     }
-                                    Toast.makeText(this@SignInActivity,"Login Successful",Toast.LENGTH_SHORT).show()
-                                    val i= Intent(this@SignInActivity, HomeActivity::class.java)
-                                    i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                                    startActivity(i)
-                                    finish()
+
+                                    signUp(response.body()!!.email_id,
+                                        response.body()!!.password)
+
+
                                 }
                             }
 
                             override fun onFailure(call: Call<SignInResponseData>, t: Throwable) {
-                                Toast.makeText(this@SignInActivity,t.message, Toast.LENGTH_SHORT).show()
+                                Log.e("ERROR",t.message.toString())
                             }
 
                         })
@@ -100,5 +103,24 @@ class SignInActivity : AppCompatActivity() {
 
     }
 
+    private fun signUp(email: String, password: String){
 
+        //THE PASSWORD SHOULD BE ATLEAST SIX CHARACTERS
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Toast.makeText(this@SignInActivity,"Login Successful",Toast.LENGTH_SHORT).show()
+                    val i= Intent(this@SignInActivity, HomeActivity::class.java)
+                    i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(i)
+                    finish()
+
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(this@SignInActivity,"some error occurred", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+    }
 }
