@@ -28,8 +28,8 @@ class ProductPage : AppCompatActivity() {
         binding= ActivityProductPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val productId= intent.getIntExtra("productId",-1)
-//        id=productId
+        val productId= intent.getIntExtra("productId",-1)
+        id=productId
 
     }
 
